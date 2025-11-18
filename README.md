@@ -1,4 +1,4 @@
-# Mini Games Arcade — Contribution Sprint
+# Mini Games Arcade - Contribution Sprint
 
 Welcome to the **Mini Games Arcade Sprint**!
 
