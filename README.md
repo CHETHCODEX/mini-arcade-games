@@ -6,11 +6,7 @@ In this challenge, your task is simple:
 
 ### Fork this repo and build ANY mini game you want.
 
-Use plain **HTML, CSS, JavaScript** (or any lightweight frontend tech).
-
-This repository contains no starter code — the entire game is up to you.
-
----
+> Use plain **HTML, CSS, JavaScript** (or any lightweight frontend tech). This repository contains no starter code - the entire game is up to you.
 
 ## What You Need To Do
 
