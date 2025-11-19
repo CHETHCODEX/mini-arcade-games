@@ -1,0 +1,180 @@
+/* ===== Premium UI + Themes + Countdown + Timer + Particles + Streak ===== */
+
+/* ---------- Theme variables ---------- */
+:root{
+  --bg:#0e1220;
+  --bg-gradient: radial-gradient(circle at top, #101524 0%, #070b13 100%);
+  --panel: rgba(255,255,255,0.03);
+  --panel-strong: rgba(255,255,255,0.06);
+  --text:#e9edf5;
+  --muted:#97a4b9;
+  --accent:#6d4aff;
+  --accent2:#9b63ff;
+  --accent-strong:#5b21b6;
+  --correct:#7ef7a0;
+  --wrong:#ff7b7b;
+  --glass: rgba(255,255,255,0.02);
+  --radius:14px;
+  --shadow: 0 10px 35px rgba(0,0,0,0.45);
+  --trans: 250ms ease;
+}
+
+/* LIGHT THEME */
+.light{
+  --bg: #f6f7fb;
+  --bg-gradient: linear-gradient(180deg,#ffffff 0%, #f4f6fb 100%);
+  --panel: rgba(6,10,18,0.03);
+  --panel-strong: rgba(6,10,18,0.04);
+  --text:#0b1220;
+  --muted:#6b7280;
+  --accent:#4f46e5;
+  --accent2:#7c3aed;
+  --correct:#0f9d58;
+  --wrong:#d14343;
+  --shadow: 0 8px 30px rgba(12,18,40,0.04);
+}
+
+/* ---------- Base ---------- */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:var(--bg-gradient);
+  color:var(--text);
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto;
+  padding:28px;
+  transition: background var(--trans), color var(--trans);
+  -webkit-font-smoothing:antialiased;
+}
+
+.container{
+  max-width:980px;
+  margin:0 auto;
+  background:var(--panel);
+  border-radius:16px;
+  padding:22px;
+  border:1px solid var(--panel-strong);
+  box-shadow:var(--shadow);
+}
+
+/* Header */
+.header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.header-left h1{
+  margin:0;font-size:1.9rem;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;color:transparent;
+}
+.subtitle{margin:6px 0 0 0;color:var(--muted);font-size:0.95rem}
+.header-right{display:flex;gap:8px;align-items:center}
+
+/* Controls */
+.controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.controls label{display:flex;align-items:center;gap:8px;background:var(--bg);padding:8px 10px;border-radius:10px}
+select{background:transparent;border:0;color:inherit;outline:none;padding:4px}
+.btn{background:linear-gradient(90deg,var(--accent),var(--accent2));color:white;border:0;padding:8px 12px;border-radius:10px;cursor:pointer;font-weight:600}
+.subtle{background:transparent;border:1px solid var(--panel-strong);box-shadow:none;color:var(--text)}
+
+/* Tiny */
+.tiny-btn{background:transparent;border:0;color:var(--muted);cursor:pointer;padding:6px;border-radius:8px}
+.tiny-btn:hover{color:var(--text);transform:translateY(-2px)}
+
+/* Test area */
+.test-area{margin-top:14px}
+.display-text{
+  background:var(--bg);
+  padding:18px;border-radius:12px;min-height:110px;line-height:1.7;font-size:1rem;border:1px solid var(--panel-strong);
+  overflow:auto;
+}
+.input-box{
+  width:100%;min-height:120px;padding:12px;border-radius:12px;border:1px dashed rgba(255,255,255,0.04);
+  background:transparent;color:var(--text);outline:none;font-size:1rem;resize:vertical;margin-top:12px;transition:box-shadow var(--trans),border-color var(--trans);
+}
+.input-box:focus{box-shadow:0 10px 30px rgba(0,0,0,0.18);border-color:var(--accent2)}
+
+/* Bottom row and stats */
+.bottom-row{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-top:12px;flex-wrap:wrap}
+.stats{display:flex;align-items:center;gap:18px;color:var(--muted);font-weight:700}
+.stats div{font-size:0.95rem}
+
+/* Timer visual */
+.timer-visual{display:flex;align-items:center;gap:10px;position:relative}
+.timer-svg{width:64px;height:64px;transform:rotate(-90deg)}
+.timer-bg{fill:none;stroke:rgba(255,255,255,0.03);stroke-width:8}
+.timer-front{fill:none;stroke:var(--accent);stroke-width:8;stroke-linecap:round;transition:stroke-dashoffset 0.25s linear, stroke 0.25s}
+.timer-label{font-weight:900;color:var(--text);font-size:0.95rem}
+
+/* Results */
+.results{background:var(--panel);padding:12px;border-radius:10px;border:1px solid var(--panel-strong)}
+
+/* Footer */
+.footer{margin-top:16px;display:flex;justify-content:space-between;color:var(--muted);font-size:0.9rem}
+
+/* Letter effects */
+.display-text span{display:inline-block;white-space:pre-wrap}
+.mark-correct{color:var(--correct);text-shadow:0 6px 20px rgba(126,247,160,0.06);transition:color 120ms ease, transform 80ms ease}
+.mark-wrong{color:var(--wrong);text-decoration:underline wavy rgba(255,123,123,0.25);transition:color 120ms ease, transform 80ms}
+
+/* Glow effect on container while typing */
+.typing-glow{
+  box-shadow: 0 12px 30px rgba(109,63,255,0.08), 0 0 40px rgba(109,63,255,0.03) !important;
+  transform: translateY(-2px);
+}
+
+/* Countdown overlay */
+.countdown-overlay{
+  position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(2,6,23,0.72);z-index:9999;backdrop-filter:blur(2px);
+}
+.countdown-number{
+  font-size:6rem;font-weight:800;line-height:1;text-align:center;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;color:transparent;
+  transform:scale(1);transition:transform 220ms ease,opacity 220ms ease;
+}
+
+/* Neon GO style */
+.countdown-go{
+  font-size:7rem;
+  text-shadow:0 6px 30px rgba(155,99,255,0.22), 0 2px 12px rgba(109,74,255,0.28);
+}
+
+/* Modal */
+.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(4,6,12,0.45);z-index:9998}
+.modal-content{width:94%;max-width:520px;background:var(--bg);padding:16px;border-radius:12px;border:1px solid var(--panel-strong)}
+.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.leaderboard-list{padding-left:18px;margin:0;color:var(--text)}
+
+/* Particle container (absolute overlay inside display-text) */
+.particles{
+  position:absolute;pointer-events:none;inset:0;overflow:hidden;border-radius:12px;
+}
+
+/* Particle styling */
+.particle{
+  position:absolute;width:8px;height:8px;border-radius:50%;opacity:0.95;
+  transform:translate3d(0,0,0);
+}
+
+/* Streak meter */
+.streak{
+  position:relative;display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:1px solid var(--panel-strong);
+  background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0.00));
+  color:var(--muted);font-weight:700;
+}
+.streak .count{font-weight:900;color:var(--accent);}
+
+/* hidden util */
+.hidden{display:none !important}
+
+/* small utilities */
+.hidden-xs{display:none}
+@media(min-width:700px){ .hidden-sm{display:block} }
+
+/* Animations */
+@keyframes floatUp {
+  from{transform:translateY(0);opacity:1} to{transform:translateY(-48px) scale(0.4);opacity:0}
+}
+
+/* responsive */
+@media (max-width:700px){
+  .stats{gap:10px;flex-wrap:wrap}
+  .timer-label{display:none}
+}

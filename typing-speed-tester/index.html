@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Typing Speed Tester — Mini Arcade</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container" id="container">
+    <header class="header">
+      <div class="header-left">
+        <h1>Typing Speed Tester</h1>
+        <p class="subtitle">How fast can you type? Enter your name, choose a text, then start the countdown.</p>
+      </div>
+      <div class="header-right">
+        <button id="theme-toggle" class="tiny-btn" title="Toggle theme">🌙</button>
+        <button id="leaderboard-open" class="tiny-btn" title="Open leaderboard">🏆</button>
+      </div>
+    </header>
+
+    <section class="controls">
+      <label>
+        <span>Name:</span>
+        <input id="player-name" type="text" placeholder="Your name" />
+      </label>
+
+      <label>
+        <span>Text:</span>
+        <select id="text-select" aria-label="Choose text">
+          <option value="0">Quick Practice</option>
+          <option value="1">Quote</option>
+          <option value="2">Longer Passage</option>
+          <option value="3">Random Words</option>
+        </select>
+      </label>
+
+      <label>
+        <span>Time (seconds):</span>
+        <select id="time-select" aria-label="Choose time">
+          <option value="15">15</option>
+          <option value="30" selected>30</option>
+          <option value="60">60</option>
+          <option value="120">120</option>
+        </select>
+      </label>
+
+      <button id="restart-btn" class="btn">Restart</button>
+      <button id="countdown-btn" class="btn subtle">Start (with countdown)</button>
+    </section>
+
+    <section class="test-area" aria-live="polite">
+      <div id="display-text" class="display-text"></div>
+
+      <textarea id="input-box" class="input-box" placeholder="Start typing here..." aria-label="Type here"></textarea>
+
+      <div class="bottom-row">
+        <div class="stats">
+          <div class="timer-visual">
+            <svg id="timer-svg" viewBox="0 0 110 110" class="timer-svg">
+              <circle class="timer-bg" cx="55" cy="55" r="48"></circle>
+              <circle id="timer-front" class="timer-front" cx="55" cy="55" r="48"></circle>
+            </svg>
+            <div class="timer-label">
+              <span id="time-left">30</span>s
+            </div>
+          </div>
+
+          <div>WPM: <span id="wpm">0</span></div>
+          <div>Accuracy: <span id="accuracy">100</span>%</div>
+          <div>Errors: <span id="errors">0</span></div>
+        </div>
+
+        <div class="results" id="results" hidden>
+          <h2>Result</h2>
+          <p>Player: <strong id="final-player">—</strong></p>
+          <p>WPM: <strong id="final-wpm">0</strong></p>
+          <p>Accuracy: <strong id="final-accuracy">0</strong>%</p>
+          <p>Correct characters: <strong id="correct-chars">0</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <small>Built for Mini Arcade Sprint • Save your best in local storage</small>
+      <div class="best">
+        Best WPM: <span id="best-wpm">—</span>
+      </div>
+    </footer>
+  </main>
+
+  <!-- COUNTDOWN OVERLAY -->
+  <div id="countdown-overlay" class="countdown-overlay hidden">
+    <div id="countdown-number" class="countdown-number">5</div>
+  </div>
+
+  <!-- LEADERBOARD MODAL -->
+  <div id="leaderboard-modal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Leaderboard — Top 5</h3>
+        <button id="leaderboard-close" class="tiny-btn">✖</button>
+      </div>
+
+      <table id="leaderboard-table" style="width:100%;border-collapse:collapse;color:inherit">
+        <thead>
+          <tr style="text-align:left;color:var(--muted);font-weight:700">
+            <th style="padding:8px 0">Rank</th>
+            <th style="padding:8px 0">Player</th>
+            <th style="padding:8px 0">WPM</th>
+            <th style="padding:8px 0">Date</th>
+          </tr>
+        </thead>
+        <tbody id="leaderboard-list"></tbody>
+      </table>
+
+      <div style="display:flex;justify-content:space-between;margin-top:12px">
+        <button id="clear-leaderboard" class="btn subtle">Clear</button>
+        <div style="color:var(--muted);align-self:center">Note: Top 5 are saved locally</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
