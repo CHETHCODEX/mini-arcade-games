@@ -35,11 +35,16 @@ Made using **HTML, CSS, and JavaScript** — no frameworks.
 
 typing-speed-tester/
 │
-├── index.html # Main UI
-├── style.css # Styling, animations, themes
-├── script.js # Game logic + leaderboard + countdown
-├── sounds/ # Sound effects (correct, wrong, countdown)
-└── README.md # Project documentation
+├── index.html        # Main UI structure
+├── style.css         # Complete styling, animations & themes
+├── script.js         # Game logic + leaderboard + countdown
+├── sounds/           # Sound effects (correct, wrong, countdown, fanfare)
+│     ├── correct.mp3
+│     ├── wrong.mp3
+│     ├── count_beep.mp3
+│     └── final_fanfare.mp3
+└── README.md         # Project documentation
+
 
 
 ---
@@ -68,10 +73,16 @@ typing-speed-tester/
 https://<your-username>.github.io/mini-arcade-games/
 
 
-### Netlify / Vercel (Optional)
+### Netlify
 - Drag and drop the folder  
 - OR connect your GitHub repo  
-- Auto-deploys instantly  
+- Auto-deploys instantly
+
+### Vercel
+- Go to https://vercel.com
+- Import your GitHub repo
+- Vercel auto-detects static sites
+- Deploy 🚀
 
 ---
 
